@@ -11,8 +11,10 @@ companies API for UI development. Check out the project's [documentation](http:/
 
 # Local Development
 
+```
 docker run --name postgres-db -e POSTGRES_PASSWORD=abc123 -e POSTGRES_USER=django -e POSTGRES_DB=djangodb -p 5432:5432 -d postgres
 python manage.py runserver
+```
 
 # Deployment
 
