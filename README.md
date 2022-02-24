@@ -22,6 +22,7 @@ run on dokku instance
 
 ```
 dokku apps:create faker-companies
+dokku config:set faker-companies DJANGO_SECRET_KEY=xxxxxxxx
 
 dokku postgres:create djangodb
 dokku postgres:link djangodb faker-companies
@@ -43,3 +44,5 @@ dokku letsencrypt:list
 dokku letsencrypt:cron-job --add
 sudo crontab -l -u dokku
 ```
+
+full reference: https://gitlab.com/kakarukeys/reconnify/-/tree/master/devops
