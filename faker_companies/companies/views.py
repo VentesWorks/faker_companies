@@ -51,4 +51,18 @@ class ListCompanies(APIView):
     permission_classes = []
 
     def get(self, request, format=None):
-        return Response(COMPANIES)
+        industry_filter = request.GET.get("company_industry", "")
+        location_filter = request.GET.get("company_location", "")
+
+        filtered_companies = [
+            comp
+            for comp in COMPANIES
+            if (not industry_filter or str(comp["company_industry"]) == industry_filter) and \
+               (not location_filter or comp["company_location"] == location_filter)
+        ]
+        count = len(filtered_companies)
+
+        return Response({
+            "count": count,
+            "results": filtered_companies
+        })
