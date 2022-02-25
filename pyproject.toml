@@ -29,6 +29,7 @@ nose-progressive = "1.5.2"
 coverage = "6.2"
 django-storages = "1.12.3"
 boto3 = "1.20.37"
+Faker = "^13.2.0"
 
 [tool.poetry.dev-dependencies]
 
